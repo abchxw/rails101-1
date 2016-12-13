@@ -9,7 +9,12 @@
 		<div class ="collapse navbar-collapse" id ="bs-example-navbar-collapse-1">
 			<ul class ="nav navbar-nav navbar-right">
 				<li>
-			      <%= link_to("Login","#") %>
+            	<% if !current_user %>
+             	<%= link_to("注册", new_user_registration_path) %>
+            	<%= link_to("登入", new_user_session_path) %>
+            	<% else %>
+             	Hi!, <%= current_user.email %>
+        	<% end %>
 				</li>
 			</ul>
 		</div>
